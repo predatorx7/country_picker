@@ -1,5 +1,5 @@
-import 'package:country_code_picker/country_code.dart';
-import 'package:country_code_picker/country_localizations.dart';
+import 'package:country_picker/country_code.dart';
+import 'package:country_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
 
 /// selection dialog used for selection of the country code
@@ -45,8 +45,8 @@ class SelectionDialog extends StatefulWidget {
     this.barrierColor,
     this.hideSearch = false,
     this.closeIcon,
-  })  : this.searchDecoration = searchDecoration.prefixIcon == null
-            ? searchDecoration.copyWith(prefixIcon: Icon(Icons.search))
+  })  : searchDecoration = searchDecoration.prefixIcon == null
+            ? searchDecoration.copyWith(prefixIcon: const Icon(Icons.search))
             : searchDecoration,
         super(key: key);
 
@@ -69,13 +69,13 @@ class _SelectionDialogState extends State<SelectionDialog> {
           decoration: widget.boxDecoration ??
               BoxDecoration(
                 color: widget.backgroundColor ?? Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                 boxShadow: [
                   BoxShadow(
                     color: widget.barrierColor ?? Colors.grey.withOpacity(1),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -137,7 +137,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
       );
 
   Widget _buildOption(CountryCode e) {
-    return Container(
+    return SizedBox(
       width: 400,
       child: Flex(
         direction: Axis.horizontal,
@@ -151,7 +151,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                     widget.flagDecoration == null ? Clip.none : Clip.hardEdge,
                 child: Image.asset(
                   e.flagUri!,
-                  package: 'country_code_picker',
+                  package: 'country_picker',
                   width: widget.flagWidth,
                 ),
               ),

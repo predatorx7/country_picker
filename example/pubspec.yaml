@@ -11,17 +11,18 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  country_code_picker:
+  country_picker:
     path: ../
   flutter_localizations:
     sdk: flutter
 
 dev_dependencies:
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
 

@@ -21,8 +21,8 @@ class CountryLocalizations {
   late Map<String, String> _localizedStrings;
 
   Future<bool> load() async {
-    String jsonString = await rootBundle.loadString(
-        'packages/country_code_picker/i18n/${locale.languageCode}.json');
+    String jsonString = await rootBundle
+        .loadString('packages/country_picker/i18n/${locale.languageCode}.json');
     Map<String, dynamic> jsonMap = json.decode(jsonString);
 
     _localizedStrings = jsonMap.map((key, value) {
@@ -119,7 +119,7 @@ class _CountryLocalizationsDelegate
 
   @override
   Future<CountryLocalizations> load(Locale locale) async {
-    CountryLocalizations localizations = new CountryLocalizations(locale);
+    CountryLocalizations localizations = CountryLocalizations(locale);
     await localizations.load();
     return localizations;
   }
